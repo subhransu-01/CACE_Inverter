@@ -1,6 +1,0 @@
-Running parameters: dc_params
-Generating simulation netlist from schematic…
-Could not find template file cace/templates/dc.sch.
-Parameter dc_params: Generating simulation files…
-Could not find template file cace/templates/dc.sch.
-Done with CACE simulations and evaluations in 0:00:00.
