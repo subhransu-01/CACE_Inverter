@@ -1,0 +1,42 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: ** sch_path: /home/subhransu/gitrepo/test/runs/run_2025-12-21_23-48-44/parameters/transient_response/run_8/tran.sch
+
+Doing analysis at TEMP = 130.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+vss                                          0
+vdd                                        1.8
+vin                                          0
+vout                                       1.8
+v3#branch                                    0
+v2#branch                         -6.18094e-11
+v1#branch                          6.18095e-11
+
+ Reference value :  2.00280e-08
+ Reference value :  6.90280e-08
+ Reference value :  9.83280e-08
+ Reference value :  1.17528e-07
+ Reference value :  1.40728e-07
+ Reference value :  1.62328e-07
+ Reference value :  1.82128e-07
+ Reference value :  2.12228e-07
+ Reference value :  2.41128e-07
+ Reference value :  2.69728e-07
+ Reference value :  3.01928e-07
+ Reference value :  3.30828e-07
+ Reference value :  3.62128e-07
+ Reference value :  3.91528e-07
+ Reference value :  4.23528e-07
+ Reference value :  4.50928e-07
+ Reference value :  4.79128e-07
+No. of Data Rows : 5008
+Note: Simulation executed from .control section 
