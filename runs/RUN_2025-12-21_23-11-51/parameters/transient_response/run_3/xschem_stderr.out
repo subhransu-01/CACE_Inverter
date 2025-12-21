@@ -1,0 +1,20 @@
+Using run time directory XSCHEM_SHAREDIR = /home/subhransu/cad/eda-xschem/glnxa64/share/xschem
+Sourcing /home/subhransu/cad/eda-xschem/glnxa64/share/xschem/xschemrc init file
+Sourcing /home/subhransu/share/pdk/gf180mcuD/libs.tech/xschem/xschemrc init file
+pdk installation: using /home/subhransu/share/pdk
+180MCU_MODELS: /home/subhransu/share/pdk/gf180mcuD/libs.tech/ngspice
+setup_tcp_bespice: success : listening to TCP port: 2022
+tclvareval(): error executing tclpropeval2 {tcleval(
+[if {[catch {sim_is_ngspice } retval] } {
+  return {} } elseif {$retval} { return {
+
+.lib /home/subhransu/share/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice ss
+.include /home/subhransu/gitRepo/test/netlist/schematic/inverter.spice
+.temp 27
+*.option SEED=[CACE{CACE{seed=12345} + 0]
+.option warn=1
+
+}
+} else { return {} }
+])
+}: missing close-brace

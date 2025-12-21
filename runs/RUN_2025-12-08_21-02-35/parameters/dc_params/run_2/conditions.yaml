@@ -1,0 +1,6 @@
+DUT_path: /home/subhransu/gitRepo/test/netlist/schematic/inverter.spice
+PDK: gf180mcuD
+PDK_ROOT: /home/subhransu/share/pdk
+corner: tt
+temperature: '130'
+vdd: null

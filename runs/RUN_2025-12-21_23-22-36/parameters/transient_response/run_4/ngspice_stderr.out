@@ -1,0 +1,21 @@
+Error opening code model "../lib/ngspice/spice2poly.cm"
+: ../lib/ngspice/spice2poly.cm: cannot open shared object file: No such file or directory
+Error: Library ../lib/ngspice/spice2poly.cm couldn't be loaded!
+Error opening code model "../lib/ngspice/analog.cm"
+: ../lib/ngspice/analog.cm: cannot open shared object file: No such file or directory
+Error: Library ../lib/ngspice/analog.cm couldn't be loaded!
+Error opening code model "../lib/ngspice/digital.cm"
+: ../lib/ngspice/digital.cm: cannot open shared object file: No such file or directory
+Error: Library ../lib/ngspice/digital.cm couldn't be loaded!
+Error opening code model "../lib/ngspice/xtradev.cm"
+: ../lib/ngspice/xtradev.cm: cannot open shared object file: No such file or directory
+Error: Library ../lib/ngspice/xtradev.cm couldn't be loaded!
+Error opening code model "../lib/ngspice/xtraevt.cm"
+: ../lib/ngspice/xtraevt.cm: cannot open shared object file: No such file or directory
+Error: Library ../lib/ngspice/xtraevt.cm couldn't be loaded!
+Error opening code model "../lib/ngspice/table.cm"
+: ../lib/ngspice/table.cm: cannot open shared object file: No such file or directory
+Error: Library ../lib/ngspice/table.cm couldn't be loaded!
+ERROR, library file /home/subhransu/share/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice, section definition tt not found
+
+ERROR: fatal error in ngspice, exit(1)
