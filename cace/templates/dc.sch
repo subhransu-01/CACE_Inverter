@@ -27,8 +27,8 @@ only_toplevel=false
 value="
 .control
 dc V3 0 1.8 0.01
-*set wr_singlescale
-wrdata CACE\{simpath\}/CACE\{filename\}_CACE\{N\}.data V(Vin) 
+set wr_singlescale
+wrdata CACE\{simpath\}/CACE\{filename\}_CACE\{N\}.data V(Vin) V(Vout)
 .endc
 "}
 C {vsource.sym} 90 90 0 0 {name=V3 value=1.8 savecurrent=false}

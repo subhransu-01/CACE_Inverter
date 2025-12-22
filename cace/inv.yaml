@@ -117,7 +117,7 @@ parameters:
         template: dc.sch
         format: ascii
         suffix: .data
-        variables: [Vin, Vout]
+        variables: [null, Vin, Vout]
         jobs: 4
     plot:
       dc:
