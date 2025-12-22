@@ -1,6 +1,0 @@
-Using run time directory XSCHEM_SHAREDIR = /home/subhransu/cad/eda-xschem/glnxa64/share/xschem
-Sourcing /home/subhransu/cad/eda-xschem/glnxa64/share/xschem/xschemrc init file
-Sourcing /home/subhransu/share/pdk/gf180mcuD/libs.tech/xschem/xschemrc init file
-pdk installation: using /home/subhransu/share/pdk
-180MCU_MODELS: /home/subhransu/share/pdk/gf180mcuD/libs.tech/ngspice
-setup_tcp_bespice: success : listening to TCP port: 2022
