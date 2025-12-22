@@ -1,4 +1,4 @@
-v {xschem version=3.4.7 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
@@ -33,7 +33,7 @@ set wr_singlescale
 wrdata CACE\{simpath\}/CACE\{filename\}_CACE\{N\}.data V(Vout) V(Vin)
 .endc
 "}
-C {vsource.sym} 90 90 0 0 {name=V3 value=CACE\{vin\} savecurrent=false}
+C {vsource.sym} 90 90 0 0 {name=V3 value="0 PULSE(0 1.8 0 1n 1n 10n 20n)" savecurrent=false}
 C {gnd.sym} 90 150 0 0 {name=l2 lab=GND}
 C {lab_wire.sym} 90 10 0 0 {name=p3 sig_type=std_logic lab=vin}
 C {lab_wire.sym} 270 -170 0 0 {name=p5 sig_type=std_logic lab=VDD}
