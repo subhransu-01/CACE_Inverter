@@ -31,7 +31,7 @@ pins:
     type: ground
     direction: inout
   Vin:
-    description: Voltage input
+    description:  Digital pulse input
     type: signal
     direction: input 
   Vout:
@@ -46,7 +46,7 @@ default_conditions:
     unit: V
     typical: 1.8
   vin:
-    description: Voltage input
+    description: Pulse input
     display: Vin
     unit: V
     typical: 1.8 
@@ -97,7 +97,7 @@ parameters:
       Tmax:
         display: Simulation time
         unit: ns
-        typical: 500
+        typical: 50
       temperature:
         minimum: -40
         typical: 27
