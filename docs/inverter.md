@@ -26,7 +26,7 @@
 - Vin
   + Description: Voltage input
   + Type: signal
-  + Direction: output
+  + Direction: input
 - Vout
   + Description: Voltage output
   + Type: signal
@@ -43,7 +43,7 @@
   + Description: Voltage input
   + Display: Vin
   + Unit: V
-  + Typical: 0 PULSE(0 1.8 0 1n 1n 10n 20n)
+  + Typical: 1.8
 - cl
   + Description: Output load capacitance
   + Display: CLoad
