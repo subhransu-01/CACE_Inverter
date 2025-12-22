@@ -1,4 +1,4 @@
-v {xschem version=3.4.7 file_version=1.2}
+v {xschem version=3.4.8RC file_version=1.2}
 G {}
 K {}
 V {}
@@ -16,8 +16,6 @@ N 190 -170 270 -170 {lab=VDD}
 N 190 -130 270 -130 {lab=VSS}
 N -160 -170 -110 -170 {lab=vin}
 N 190 -150 360 -150 {lab=Vout}
-N 360 -150 360 -120 {lab=Vout}
-N 360 -70 360 -40 {lab=GND}
 C {vsource.sym} -180 -50 0 0 {name=V1 value=0 savecurrent=false}
 C {vsource.sym} -100 -50 0 0 {name=V2 value=CACE\{vdd\} savecurrent=false}
 C {gnd.sym} -180 40 0 0 {name=l1 lab=GND}
@@ -28,12 +26,12 @@ simulator=ngspice
 only_toplevel=false 
 value="
 .control
-tran 0.1n CACE\{Tmax\}
-set wr_singlescale
-wrdata CACE\{simpath\}/CACE\{filename\}_CACE\{N\}.data V(Vout) V(Vin)
+dc V3 0 1.8 0.01
+*set wr_singlescale
+wrdata CACE\{simpath\}/CACE\{filename\}_CACE\{N\}.data V(Vin) 
 .endc
 "}
-C {vsource.sym} 90 90 0 0 {name=V3 value="0 PULSE(0 1.8 0 1n 1n 10n 20n)" savecurrent=false}
+C {vsource.sym} 90 90 0 0 {name=V3 value=1.8 savecurrent=false}
 C {gnd.sym} 90 150 0 0 {name=l2 lab=GND}
 C {lab_wire.sym} 90 10 0 0 {name=p3 sig_type=std_logic lab=vin}
 C {lab_wire.sym} 270 -170 0 0 {name=p5 sig_type=std_logic lab=VDD}
@@ -57,9 +55,3 @@ value="
 .include $::180MCU_MODELS/design.ngspice
 .lib $::180MCU_MODELS/sm141064.ngspice typical
 "}
-C {capa.sym} 360 -100 0 0 {name=C1
-m=1
-value=CACE\{cl\}
-footprint=1206
-device="ceramic capacitor"}
-C {gnd.sym} 360 -40 0 0 {name=l3 lab=GND}

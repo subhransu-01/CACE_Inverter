@@ -31,7 +31,7 @@ pins:
     type: ground
     direction: inout
   Vin:
-    description:  Digital pulse input
+    description:  Voltage input
     type: signal
     direction: input 
   Vout:
@@ -46,14 +46,14 @@ default_conditions:
     unit: V
     typical: 1.8
   vin:
-    description: Pulse input
+    description: Voltage input
     display: Vin
     unit: V
     typical: 1.8 
   cl:
     description: Output load capacitance
     display: CLoad
-    unit: pF
+    unit: fF
     maximum: 1
   corner:
     description: Process corner
@@ -87,7 +87,7 @@ parameters:
       time:
         display: Time
         unit: ms
-      Vinp:
+      Vin:
         display: Vin
         unit: V
       Vout:
@@ -102,6 +102,41 @@ parameters:
         minimum: -40
         typical: 27
         maximum: 130  
+      corner:
+        minimum: ss
+        typical: tt
+        maximum: ff
+
+  dc_response:
+    description: DC response
+    display: DC response
+    status: skip
+    unit: V
+    tool:
+       ngspice:
+        template: dc.sch
+        format: ascii
+        suffix: .data
+        variables: [Vin, Vout]
+        jobs: 4
+    plot:
+      dc:
+        suffix: .svg
+        xaxis: Vin
+        yaxis: Vout
+
+    variables:
+      Vin:
+        display: Vin
+        unit: V
+      Vout:
+        display: Vout
+        unit: V
+    conditions:
+      temperature:
+        minimum: -40
+        typical: 27
+        maximum: 130
       corner:
         minimum: ss
         typical: tt
