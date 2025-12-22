@@ -1,0 +1,18 @@
+
+# CACE Summary for inverter
+
+**netlist source**: schematic
+
+|      Parameter       |         Tool         |     Result      | Min Limit  |  Min Value   | Typ Target |  Typ Value   | Max Limit  |  Max Value   |  Status  |
+| :------------------- | :------------------- | :-------------- | ---------: | -----------: | ---------: | -----------: | ---------: | -----------: | :------: |
+
+
+## Plots
+
+## transient
+
+![transient](./inverter/schematic/transient.svg)
+
+## dc
+
+![dc](./inverter/schematic/dc.svg)

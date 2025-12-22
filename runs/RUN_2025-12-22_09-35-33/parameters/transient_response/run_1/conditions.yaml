@@ -1,0 +1,13 @@
+DUT_path: /home/subhransu/gitRepo/test/netlist/schematic/inverter.spice
+N: 1
+PDK: gf180mcuD
+PDK_ROOT: /home/subhransu/share/pdk
+Tmax: '5.0000000000000004e-08'
+cl: 1e-15
+corner: tt
+filename: tran
+iterations: '0'
+seed: '12345'
+simpath: /home/subhransu/gitRepo/test/runs/RUN_2025-12-22_09-35-33/parameters/transient_response/run_1
+temperature: '-40'
+vdd: '1.8'

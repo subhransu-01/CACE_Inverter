@@ -1,0 +1,11 @@
+DUT_path: /home/subhransu/gitRepo/test/netlist/schematic/inverter.spice
+N: 3
+PDK: gf180mcuD
+PDK_ROOT: /home/subhransu/share/pdk
+corner: ss
+filename: dc
+iterations: '0'
+seed: '12345'
+simpath: /home/subhransu/gitRepo/test/runs/RUN_2025-12-22_09-35-33/parameters/dc_response/run_3
+temperature: '27'
+vdd: '1.8'
