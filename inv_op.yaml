@@ -1,0 +1,148 @@
+name: inverter
+description: A simple inverter
+PDK: gf180mcuD
+cace_format: 5.0
+authorship:
+  designer: Subhransu Das
+  creation_date: Dec 17, 2025
+  license: MIT license
+  company: null
+  modification_date: null
+paths:
+  root: .
+  schematic: xschem
+  netlist: netlist
+  documentation: docs
+  templates: cace/templates
+  scripts: cace/scripts
+  runs: runs
+pins:
+  VDD:
+    description: Positive analog power supply
+    type: power
+    direction: inout
+    Vmin: 1.7
+    Vmax: 1.9
+  VSS:
+    description: Analog ground
+    type: ground
+    direction: inout
+  Vin:
+    description: Voltage input
+    type: signal
+    direction: input
+  Vout:
+    description: Voltage output
+    type: signal
+    direction: output
+default_conditions:
+  vdd:
+    description: Analog power supply voltage
+    display: Vdd
+    unit: V
+    typical: 1.8
+  vin:
+    description: Voltage input
+    display: Vin
+    unit: V
+    typical: 1.8
+  cl:
+    description: Output load capacitance
+    display: CLoad
+    unit: fF
+    maximum: 1
+  corner:
+    description: Process corner
+    display: Corner
+    typical: tt
+  temperature:
+    description: Ambient temperature
+    display: Temp
+    unit: °C
+    typical: 27
+parameters:
+  transient_response:
+    description: Transient response
+    display: Transient response
+    status: skip
+    unit: mV
+    tool:
+      ngspice:
+        template: tran.sch
+        format: ascii
+        suffix: .data
+        variables:
+        - time
+        - Vout
+        - Vin
+        jobs: 4
+    plot:
+      transient:
+        suffix: .svg
+        xaxis: time
+        yaxis:
+        - Vout
+        - Vin
+    variables:
+      time:
+        display: Time
+        unit: ms
+      Vin:
+        display: Vin
+        unit: V
+      Vout:
+        display: Vout
+        unit: V
+    conditions:
+      Tmax:
+        display: Simulation time
+        unit: ns
+        typical: 50
+      temperature:
+        minimum: -40
+        typical: 27
+        maximum: 130
+      corner:
+        minimum: ss
+        typical: tt
+        maximum: ff
+    name: transient_response
+    spec: {}
+  dc_response:
+    description: DC response
+    display: DC response
+    status: skip
+    unit: V
+    tool:
+      ngspice:
+        template: dc.sch
+        format: ascii
+        suffix: .data
+        variables:
+        - null
+        - Vin
+        - Vout
+        jobs: 4
+    plot:
+      dc:
+        suffix: .svg
+        xaxis: Vin
+        yaxis: Vout
+    variables:
+      Vin:
+        display: Vin
+        unit: V
+      Vout:
+        display: Vout
+        unit: V
+    conditions:
+      temperature:
+        minimum: -40
+        typical: 27
+        maximum: 130
+      corner:
+        minimum: ss
+        typical: tt
+        maximum: ff
+    name: dc_response
+    spec: {}
