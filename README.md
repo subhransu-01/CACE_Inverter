@@ -9,11 +9,11 @@ Nix is a build system for Linux and macOS allowing for cachable and reproducible
 Nix is a package manager for Linux and macOS allowing for cachable and reproducible builds, and is the primary build system for CACE.
 ## For Ubuntu/Other Linux
 - ### Minimum Requirements
-- Quad-core CPU running at 2.0 GHz+
-- 8 GiB of RAM
+    - Quad-core CPU running at 2.0 GHz+
+    - 8 GiB of RAM
 - ### Recommended Requirements
-- 6th Gen Intel® Core CPU or later OR AMD Ryzen™️ 1000-series or later
-- 16 GiB of RAM  
+    - 6th Gen Intel® Core CPU or later OR AMD Ryzen™️ 1000-series or later
+    - 16 GiB of RAM  
 #### It will primarily support Ubuntu 20.04+ for CACE.  
 ## Install and Setup EDA Tools  
 [To install Ubuntu 24.04 on Windows Subsytem for Linux (WSL)](https://github.com/silicon-vlsi/SI-2025-AnalogIC/blob/main/content/cad-install-setup-wsl-ubuntu.md)   
@@ -100,3 +100,67 @@ This is an example output of CACE running the characterization for a simple OTA:
 The CACE datasheet contains the specification of your design and other important information. It acts as both documentation for the specifiaction but also as input for CACE.  
   
 The following sections describe the structure of the datasheet.  
+### Metadata  
+Example entry:  
+```bash
+name:           inverter
+description:    A simple inverter
+PDK:            gf180mcuD
+cace_format:    5.2
+```
+- ```name: <string>```
+  
+    ```Name of the design (cell name)```
+
+- ```description: <string>```
+
+    ```Description of the design```  
+
+- ```PDK: <string>```
+
+    ```Name of the PDK (no spaces)```  
+
+- ```cace_format: <string>```
+
+    ```Format version of the datasheet. Current version: 5.2.```
+  
+### Authorship  
+Example entry:  
+```bash
+authorship:
+  designer:         Subhransu Das
+  creation_date:    Dec 17, 2025
+  license:          MIT license
+```  
+- ```designer: <string>```
+
+  ```The person to whom the design is attributed.```
+
+- ```company: <string>``` (optional)
+ 
+  ```The name of a company, if applicable.```
+
+- ```institution: <string>``` (optional)
+
+  ```The name of an institution, if applicable.```
+
+- ```email: <string>``` (optional)
+
+  ```E-mail for contact information.```
+
+- ```creation_date: <datestamp>```
+
+  ```Date that the CACE setup was made, or any meaningful date for the creation of the design.```
+
+- ```modification_date: <datestamp>```
+
+  ```Generally handled by the tools to specify when the characterization file was last updated.```
+
+- ```license: <string>```
+
+  ```A known license type, such as “Apache 2.0”.```
+### Paths
+The paths section is used to tell CACE where to find certain files of your design or where to generate files for simulation.  
+
+Example entry:  
+
