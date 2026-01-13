@@ -199,3 +199,201 @@ paths:
 - ```runs: <path>``` (optional)
 
   ```Location for the run directory.```  
+### Pins  
+The pins of the design, mainly used for documentation purposes. The names of the pins are checked against the schematic.  
+
+Example entry:  
+
+```bash
+pins:
+  VDD:
+    description: Power supply
+    direction: inout
+    type: power
+    Vmin: 1.7
+    Vmax: 1.9
+    Imin: 0
+    Imax: 0.01
+  ...
+  ```
+
+- ```name: <string>```
+
+  ```The pin name. Must match the name on the schematic or netlist. Vectors should be indexed with “:” and will be expanded when needed. “b7:0” expands to “b7, b6, b5, …” while “b[7:0]” expands to “b[7], b[6], b[5], …” (Note that this is more flexible than the convention for condition names described below.)```
+
+- ```description: <string>```
+ 
+  ```Text description of the pin. May contain spaces.```
+
+- ```type: <string>```
+
+  ```The type may be one of “digital”, “signal”, “power”, or “ground”.```
+
+- ```direction: <string>```
+
+  ```The direction may be one of “input”, “output”, or “inout”.```
+
+- ```Vmin: <number>|<expression>```
+
+  ```The pin minimum voltage may be a value or may be referenced to another pin; and may be referenced to another pin with an offset (e.g., “vss - 0.3”).```
+
+- ```Vmax: <number>|<expression>```
+
+  ```The pin maximum voltage may be a value or may be referenced to another pin; and may be referenced to another pin with an offset (e.g., “vdd + 0.3”).```
+
+- ```Imin: <number>|<expression>```
+
+  ```The pin maximum sink current -a minimum value if specified as a negative current- may be a value or may be referenced to another pin; and may be referenced to another pin with an offset.```
+
+- ```Imax: <number>|<expression>```
+
+  ```The pin maximum source current may be a value or may be referenced to another pin; and may be referenced to another pin with an offset.```
+
+### Default Conditions
+The default conditions under which to evaluate the parameters.  
+
+Example entry:  
+
+```bash
+default_conditions:
+  corner:
+    display: Corner
+    description: The corner of the wafer
+    typical: tt
+    unit: V
+  ...
+```
+
+- ```name: <string>```
+
+  ```The name of the condition; this name is meaningful because it will match a variable name used in a schematic or netlist. The representation in the netlist is always ${} to prevent accidental substitutions of matching strings. Any set of signals can be bundled, but the delimiters for the bundle must be brackets; e.g., b[7:0], with single bits called out as, e.g., b[0].```
+
+- ```description: <string>```
+
+  ```A description of the condition.```
+
+- ```display: <string>```
+
+  ```A short, typically one-word value to display for the condition.```
+
+- ```unit: <string>```
+
+  ```The unit of measure used to display the condition value.```
+
+- ```typical: <value>```
+
+  ```If present, the default typical value of the condition.```
+
+- ```maximum: <value>```
+
+  ```If present, the default maximum value of the condition.```
+
+- ```minimum: <value>```
+
+  ```If present, the default minimum value of the condition.```
+
+- ```enumerate: <values>```
+
+  ```If present, instead of min/typ/max values, the values are enumerated from a space-separated list supplied in (see above; long lists may be backslash-newline terminated).```
+
+- ```step: linear|logarithmic```
+
+  ```If not present, then only values min/typ/max are evaluated. If present, then values are automatically enumerated from min to max inclusive either in linear (default) or logarithmic progression. If typ exists and is not in the enumeration, then it is evaluated in addition.```
+
+- ```stepsize: <value>```
+
+  ```If not present, then a stepsize of 1 is assumed for linear enumeration or 2 for logarithmic enumeration. Otherwise, the enumeration steps by additive values for linear enumeration or multiplicative values for logarithmic enumeration.```  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```bash
+parameters:
+  transient_response:
+    description: Transient response
+    display: Transient response
+    status: skip
+    unit: mV
+    tool:
+      ngspice:
+        template: tran.sch
+        format: ascii
+        suffix: .data
+        variables: [time, Vout, Vin]
+        jobs: 4
+    plot:
+      transient:
+        suffix: .svg
+        xaxis: time
+        yaxis: [Vout, Vin]
+    variables:
+      time:
+        display: Time
+        unit: ms
+      Vin:
+        display: Vin
+        unit: V
+      Vout:
+        display: Vout
+        unit: V
+    conditions:
+      Tmax:
+        display: Simulation time
+        unit: ns
+        typical: 50
+      temperature:
+        minimum: -40
+        typical: 27
+        maximum: 130  
+      corner:
+        minimum: ss
+        typical: tt
+        maximum: ff
+
+  dc_response:
+    description: DC response
+    display: DC response
+    status: skip
+    unit: V
+    tool:
+       ngspice:
+        template: dc.sch
+        format: ascii
+        suffix: .data
+        variables: [null, Vin, Vout]
+        jobs: 4
+    plot:
+      dc:
+        suffix: .svg
+        xaxis: Vin
+        yaxis: Vout
+    variables:
+      Vin:
+        display: Vin
+        unit: V
+      Vout:
+        display: Vout
+        unit: V
+    conditions:
+      temperature:
+        minimum: -40
+        typical: 27
+        maximum: 130
+      corner:
+        minimum: ss
+        typical: tt
+        maximum: ff
