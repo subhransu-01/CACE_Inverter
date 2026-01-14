@@ -537,3 +537,5 @@ Schematics are drawn normally but statements can have special syntax that is sub
   Instead of substituting one value for a condition, a value over all conditions is substituted, including the maximum over all conditions, minimum over all conditions, the step size between neighboring condition values, or the number of steps over all values of the condition. This is used most often in cases where a condition is handled entirely inside a testbench netlist (such as in a sweep), and not iterated over multiple netlists.
 
 ## [Supported Tools](https://cace.readthedocs.io/en/latest/reference_manual/tools.html)
+## CACE Setup for an inverter  
+This tutorial will guide you step by step through the creation of a simple inverter and the CACE setup for it. It is assumed that you have already set up CACE and its dependencies.  
